@@ -24,6 +24,7 @@ public class Projecte {
         String lloc=null;
         int naixement=0;
         boolean sexe=false;
+        boolean omplit=false;
         double dines=0.0;
         
        
@@ -54,7 +55,7 @@ public class Projecte {
                     lloc = entrada.next();
                     System.out.print("Introdueix l'any de naixement: ");
                     naixement = entrada.nextInt();
-                    System.out.print("Introdueix el sexe: ");
+                    System.out.print("Introdueix el sexe: (m o f) ");
                     sexe=entrada.nextBoolean();
                     System.out.print("Introdueix qual a facturat duran lany: ");
                     dines=entrada.nextDouble();
