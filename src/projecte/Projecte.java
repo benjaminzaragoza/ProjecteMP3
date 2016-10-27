@@ -59,6 +59,12 @@ public class Projecte {
                     System.out.print("Introdueix qual a facturat duran lany: ");
                     dines=entrada.nextDouble();
                     break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
                 default:
                     System.out.println("opcio incorrecta");
             }
