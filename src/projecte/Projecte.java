@@ -22,7 +22,7 @@ public class Projecte {
         int valor=0;
         String nom=null;
         String lloc=null;
-        int edat=0;
+        int naixement=0;
         boolean sexe=false;
         double dines=0.0;
         
@@ -52,8 +52,8 @@ public class Projecte {
                     nom = entrada.next();
                     System.out.print("Introdueix el lloc de on es: ");
                     lloc = entrada.next();
-                    System.out.print("Introdueix la edat: ");
-                    edat = entrada.nextInt();
+                    System.out.print("Introdueix l'any de naixement: ");
+                    naixement = entrada.nextInt();
                     System.out.print("Introdueix el sexe: ");
                     sexe=entrada.nextBoolean();
                     System.out.print("Introdueix qual a facturat duran lany: ");
