@@ -22,12 +22,14 @@ public class Projecte {
         Scanner entNum = new Scanner(System.in);
 
         int valor = 0;
+        char eliminar = ' ';
         String nom = null;
         String lloc = null;
         int naixement = 0;
         boolean home = false;
         boolean omplit = false;
-        double dines = 0.0;
+        double diners;
+        diners = 0.0;
 
         do {
 
@@ -50,32 +52,65 @@ public class Projecte {
                     System.out.print("Sortin.......");
                     break;
                 case 2:
+                    System.out.println("\n");
                     if (!omplit) {
                         System.out.print("Introdueix el nom: ");
-                        nom = entText.next();
+                        nom = entText.nextLine();
                         System.out.print("Introdueix el lloc de on es: ");
-                        lloc = entText.next();
+                        lloc = entText.nextLine();
                         System.out.print("Introdueix l'any de naixement: ");
                         naixement = entNum.nextInt();
-                        char eshome;
-                        
+                        char eshome = ' ';
                         do {
-                            System.out.print("Introdueix el sexe: (Masculí o Femení)");
+                            System.out.print("Introdueix el sexe: (Masculí o Femení):");
                             eshome = entText.nextLine().toUpperCase().charAt(0);
-                        } while (eshome != 'M' && eshome !='F');
-                        if (eshome == 'M') {
-                            home = true;
-                        } else {
-                            home = false;}
-                        
+                        }while (eshome != 'M' && eshome != 'F');
+                        home = (eshome == 'M');
                         System.out.print("Introdueix qual a facturat duran lany: ");
-                        dines = entNum.nextDouble();
+                        diners = entNum.nextDouble();
                         omplit = true;
                     } else {
                         System.out.println("Dades introduides... ");
                     }
                     break;
                 case 3:
+                    System.out.println("\n");
+                    if (nom==null){
+                                System.out.println("No hi ha nom introduit");
+                            }else{System.out.println(nom);}
+                    if (lloc==null){
+                                System.out.println("No hi ha lloc introduit");
+                            }else{System.out.println(lloc);}
+                    if (naixement==0){
+                                System.out.println("No hi ha any de naixement introduit");
+                            }else{System.out.println(naixement);}
+                    if (home==false){
+                                System.out.println("No hiha genere");
+                            }else{System.out.println(home);}
+                    if (diners==0){
+                                System.out.println("No hiha diners introduits");
+                            }else{System.out.println(diners);}
+                    System.out.println("\n");
+                    do{
+                    System.out.println("Segur que el vols borrar? (Sí/No):");
+                    eliminar = entText.nextLine().toUpperCase().charAt(0);
+                    switch (eliminar) {
+                        case 'S':
+                            nom =" ";
+                            lloc =" ";
+                            naixement = 0;
+                            home = false;
+                            diners = 0;
+                            System.out.println("Borrat correctament!!!!!");
+                            System.out.println("\n");
+                            break;
+                        case 'N':
+                         System.out.println("no borrem res....");
+                         System.out.println("\n");
+                        default:
+                            System.out.println("introdueix un caracter valid....");
+                    System.out.println("\n");}
+                    }while (eliminar != 'S' && eliminar != 'N');
                     break;
                 case 4:
                     break;
@@ -84,7 +119,6 @@ public class Projecte {
                 default:
                     System.out.println("opcio incorrecta");
             }
-
         } while (valor != 1);
     }
 }
