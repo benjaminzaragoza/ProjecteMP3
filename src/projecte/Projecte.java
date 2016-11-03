@@ -82,7 +82,7 @@ public class Projecte {
                      System.out.println(nom);
                      System.out.println(lloc);
                      System.out.println(naixement);
-                     System.out.println(home);
+                     System.out.println(eshome);
                      System.out.println(diners);
                     }else{
                         System.out.println("No hi ha dades introduit");
