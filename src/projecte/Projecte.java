@@ -75,6 +75,8 @@ public class Projecte {
                         System.out.print("Introdueix qual a facturat duran lany: ");
                         diners = entNum.nextDouble();
                         System.out.println("\n");
+                        System.out.println("Dades introduides ...");
+                        System.out.println("\n");
                         omplit = true;
                     } else {
                         System.out.println("Dades introduides... ");
@@ -200,8 +202,11 @@ public class Projecte {
                                 }
                                 System.out.println("El seu sexe es "+eshome);
                                 System.out.println("\n");
+                               do {
                                 System.out.print("Vols canviar el sexe?(S/N)");
                                 opcio = entText.nextLine().toUpperCase().charAt(0);
+                                } while (eshome != 'M' && eshome != 'F');
+                                home = (eshome == 'M');
                                 System.out.println("\n");
                                 switch (opcio) {
                                     case 'S':
@@ -240,21 +245,25 @@ public class Projecte {
                                 break;
 
                             default:
-                                System.out.println("opcio incorrecta");
+                                System.out.println("Opcio incorrecta....");
                         }
                         
                     } else {
-                        System.out.println("No hi ha s'han introduit dades ");
+                        System.out.println("No hi ha s'han introduit dades.....");
                     }
                     break;
                 case 5:
                     System.out.println("\n");
                     if (omplit) {
-                        System.out.println(nom);
-                        System.out.println(lloc);
-                        System.out.println(naixement);
-                        System.out.println(eshome);
-                        System.out.println(diners);
+                        System.out.println("-----> El seu nom es "+nom);
+                        System.out.println("-----> Va naixer a "+lloc);
+                        System.out.println("-----> El seu any de naixement es "+naixement);
+                        if (eshome=='F') {
+                            System.out.println("-----> El seu sexe es Femeni");
+                        } else {System.out.println("-----> El seu sexe es Masculi");
+                        }
+                        System.out.println("-----> A facturat "+diners);
+                        System.out.println("\n");
                     }
                     
                     else 
