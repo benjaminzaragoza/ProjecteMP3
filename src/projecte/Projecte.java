@@ -13,16 +13,33 @@ import java.util.Scanner;
  */
 public class Projecte {
 
+    private static final int MAX_DJS = 2;
+    private static Dj[] array = new Dj[MAX_DJS];
+
     /**
      * @param args the command line arguments
      */
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
+
         // TODO code application logic here
         Scanner entText = new Scanner(System.in);
         Scanner entNum = new Scanner(System.in);
 
-        int valor = 0;
+        int valor;
+        Dj p = null; //apuntar pj segons la casella
+        char sn;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = new Dj();
+            array[i].setOmplit(false);
+        }
+
+//        if(i!=array.length){
+//            System.out.println("Podem escriure un nou pilot");
+//        }
+//        else{
+//            System.out.println("No hiha lloc per afeguir mes pilots");
+//        }
         char eliminar = ' ';
         String nom = null;
         String lloc = null;
@@ -32,7 +49,7 @@ public class Projecte {
         double diners;
         diners = 0.0;
         char eshome = ' ';
-        char opcio = ' ';
+        char opcio = ' '; // opcio escollida si S o N ..SI O NO 
 
         do {
             System.out.println("------------------------------------------");
@@ -55,70 +72,64 @@ public class Projecte {
                     System.out.print("Sortin.......");
                     break;
                 case 2:
+                    int i;
+                    for (i = 0; i < array.length && array[i].isOmplit(); i++);
+
                     System.out.println("\n");
-                    if (!omplit) {
+                    if (i != array.length) {
+
+                        p = array[i]; // aixo es igual que array[i]
+
                         System.out.print("Introdueix el nom: ");
-                        nom = entText.nextLine();
+                        p.setNom(entText.nextLine());
 
                         System.out.print("Introdueix el lloc de on es: ");
-                        lloc = entText.nextLine();
+                        p.setLloc(entText.nextLine());
 
                         System.out.print("Introdueix l'any de naixement: ");
-                        naixement = entNum.nextInt();
+                        p.setNaixement(entNum.nextInt());
 
                         do {
                             System.out.print("Introdueix el sexe: (Masculí o Femení): ");
                             eshome = entText.nextLine().toUpperCase().charAt(0);
                         } while (eshome != 'M' && eshome != 'F');
-                        home = (eshome == 'M');
+                        p.setHome((eshome == 'M'));
 
                         System.out.print("Introdueix qual a facturat duran lany: ");
-                        diners = entNum.nextDouble();
+                        p.setDiners(entNum.nextDouble());
                         System.out.println("\n");
                         System.out.println("Dades introduides ...");
                         System.out.println("\n");
-                        omplit = true;
+                        p.setOmplit(true);
                     } else {
                         System.out.println("Dades introduides... ");
                         System.out.println("\n");
                     }
                     break;
                 case 3:
-                    System.out.println("\n");
-                    if (omplit) {
-                        System.out.println(nom);
-                        System.out.println(lloc);
-                        System.out.println(naixement);
-                        System.out.println(eshome);
-                        System.out.println(diners);
-                    } else {
-                        System.out.println("No hi ha dades introduit");
-                        System.out.println("\n");
-                    }
-                    do {
-                        System.out.print("Segur que el vols borrar? (Sí/No): ");
-                        eliminar = entText.nextLine().toUpperCase().charAt(0);
-                        System.out.println("\n");
-                        switch (eliminar) {
-                            case 'S':
-                                nom = " ";
-                                lloc = " ";
-                                naixement = 0;
-                                home = false;
-                                diners = 0;
-                                System.out.println("Borrat correctament!!!!!");
-                                System.out.println("\n");
-                                break;
-                            case 'N':
-                                System.out.println("No borrem res....");
-                                System.out.println("\n");
-                                break;
-                            default:
-                                System.out.println("Introdueix un caracter valid....");
-                                System.out.println("\n");
+                    sn = 'n';
+                    for (i = 0; i < array.length; i++) {
+                        p = array[i];
+
+                        if (p.isOmplit()) {
+                            System.out.println(p);
+                            do {
+                                System.out.println("vols borrar el dj? (s/n)");
+                                sn = entText.nextLine().toLowerCase().charAt(0);
+                            } while (sn != 's' && sn != 'n');
                         }
-                    } while (eliminar != 'S' && eliminar != 'N');
-                    omplit = false;
+                        if (sn == 's') {
+                            break;
+                        }
+
+                    }
+                    System.out.println("\n");
+                    if (i < array.length) {
+                        p.setOmplit(false);
+                        System.out.println("dj borrat correctament");
+                    } else {
+                        System.out.println("No hem borrat res");
+                    }
                     break;
                 case 4:
                     System.out.println("\n");
