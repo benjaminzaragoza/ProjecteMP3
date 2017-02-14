@@ -157,9 +157,9 @@ public class Projecte {
         System.out.println("\n");
         if (i < array.length) {
             p.setOmplit(false);
-            System.out.println("dj borrat correctament");
+            System.out.println("dj borrat correctament...");
         } else {
-            System.out.println("No hem borrat res");
+            System.out.println("No tenim res que borrar,perfavor introduieixi dades");
         }
     }
 
@@ -195,6 +195,8 @@ public class Projecte {
                                 System.out.println("Quin nom posem? ");
                                 array[i].setNom(entText.nextLine());
                                 System.out.println("\n");
+                                System.out.println("Dades introduides... ");
+                                System.out.println("\n");
                                 break;
                             case 'N':
                                 System.out.println("no canviem res... ");
@@ -213,6 +215,8 @@ public class Projecte {
                                 System.out.println("Quin lloc posem?");
                                 array[i].setLloc(entText.nextLine());
                                 System.out.println("\n");
+                                System.out.println("Dades introduides... ");
+                                System.out.println("\n");
                                 break;
                             case 'N':
                                 System.out.println("No canviem res...");
@@ -223,11 +227,15 @@ public class Projecte {
                         System.out.println("\n");
                         System.out.print("Vols canviar el any de naixement?(S/N) ");
                         sn = entNum.nextLine().toUpperCase().charAt(0);
-                        System.out.println("\n");
+                                System.out.println("\n");
+                                System.out.println("Dades introduides... ");
+                                System.out.println("\n");
                         switch (sn) {
                             case 'S':
                                 System.out.print("Quin  any de naixement  posem? ");
                                 array[i].setNaixement(entNum.nextInt());
+                                System.out.println("\n");
+                                System.out.println("Dades introduides... ");
                                 System.out.println("\n");
                                 break;
                             case 'N':
@@ -252,6 +260,9 @@ public class Projecte {
                                 do {
                                     System.out.println("Quin  sexe posem : Masculí o Femení");
                                     esHome = entText.nextLine().toUpperCase().charAt(0);
+                                    System.out.println("\n");
+                                    System.out.println("Dades introduides... ");
+                                    System.out.println("\n");
                                 } while (esHome != 'M' && eshome != 'F');
                                 array[i].setHome(esHome == 'H');
                                 System.out.print("Nou gènere: ");
@@ -270,11 +281,15 @@ public class Projecte {
                         System.out.println("\n");
                         System.out.print("Vols canviar el diners facturats?(S/N) ");
                         sn = entText.nextLine().toUpperCase().charAt(0);
-                        System.out.println("\n");
+                                System.out.println("\n");
+                                System.out.println("Dades introduides... ");
+                                System.out.println("\n");
                         switch (sn) {
                             case 'S':
                                 System.out.println("Quants diners posem? ");
                                 array[i].setDiners(entNum.nextInt());
+                                System.out.println("\n");
+                                System.out.println("Dades introduides... ");
                                 System.out.println("\n");
                                 break;
                             case 'N':
