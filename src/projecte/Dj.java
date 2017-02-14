@@ -35,7 +35,7 @@ public class Dj {
                 "\n naixement=" + naixement +
                 "\n diners=" + diners +
                 (home?"\n Genere masculi":"\n Genere femeni");
-   
+                 
     }
 
     public void setEliminar(char eliminar) {
@@ -87,7 +87,9 @@ public class Dj {
     }
 
     public void setDiners(double diners) {
-        this.diners = diners;
+        
+        if(diners<0) System.out.println("Els diners no poden ser negatius...");
+        else this.diners = diners;
     }
 
     public char getEshome() {
