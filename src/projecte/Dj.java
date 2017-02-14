@@ -34,8 +34,7 @@ public class Dj {
                 "\n lloc=" + lloc + 
                 "\n naixement=" + naixement +
                 "\n diners=" + diners +
-                (home?"\n Genere masculi":"\n Genere femeni");
-                 
+                (home?"\n Genere masculi":"\n Genere femeni");          
     }
 
     public void setEliminar(char eliminar) {
